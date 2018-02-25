@@ -1,0 +1,20 @@
+{
+  "name": "ch6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-button": "./node_modules/.bin/babel click-button/jsx -d click-button/js -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}
