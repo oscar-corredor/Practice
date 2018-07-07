@@ -1,0 +1,3 @@
+function stringsRearrangement(inputArray) {
+    inputArray.
+}
