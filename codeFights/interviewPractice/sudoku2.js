@@ -19,8 +19,10 @@ function checkRows(grid) {
 
 function checkColumns(grid) {
   for (let row = 0; row < grid.length; row++) {    
+    let columnNumbers
     for (let column = 0; column < row.length; column++) {
       const element = grid[row][column];
+
       
     }
     
