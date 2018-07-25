@@ -11,14 +11,15 @@ class NewPost extends Component {
     }
 
     postDataHandler = () => {
-        const createdPost = {
+        const data = {
             title: this.state.title,
             body: this.state.content,
-            author: this.state.author,
-        }
-        axios.post("/posts", createdPost).then(response => {
-            console.log(response);
-        });
+            author: this.state.author
+        };
+        axios.post('/posts', data)
+            .then(response => {
+                console.log(response);
+            });
     }
 
     render () {

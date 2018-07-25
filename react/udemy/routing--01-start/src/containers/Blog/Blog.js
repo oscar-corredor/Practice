@@ -8,54 +8,54 @@ import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
-
     state = {
         posts: [],
         selectedPostId: null,
-        error: false,
+        error: false
     }
 
-    componentDidMount() {
-        axios.get("/posts").then(
-            response => {
+    componentDidMount () {
+        axios.get( '/posts' )
+            .then( response => {
                 const posts = response.data.slice(0, 4);
                 const updatedPosts = posts.map(post => {
                     return {
                         ...post,
-                        author: "Oscar"
+                        author: 'Max'
                     }
                 });
-                this.setState({ posts: updatedPosts });
-                // console.log(response);
-            }
-        ).catch(error => {
-            this.setState({error:true});
-            // console.log(error);
-        })
+                this.setState({posts: updatedPosts});
+                // console.log( response );
+            } )
+            .catch(error => {
+                // console.log(error);
+                this.setState({error: true});
+            });
     }
 
-    postSelectedHandler = (postId) => {
-        this.setState({selectedPostId: postId})
+    postSelectedHandler = (id) => {
+        this.setState({selectedPostId: id});
     }
 
-    render() {
-        let posts = <p>Something went wrong!!!! </p>
-        if(!this.state.error) {
+    render () {
+        let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
+        if (!this.state.error) {
             posts = this.state.posts.map(post => {
-                return <Post
-                    title={post.title}
-                    key={post.id}
+                return <Post 
+                    key={post.id} 
+                    title={post.title} 
                     author={post.author}
-                    clicked={() => this.postSelectedHandler(post.id)} />
+                    clicked={() => this.postSelectedHandler(post.id)} />;
             });
         }
+
         return (
             <div>
                 <section className="Posts">
                     {posts}
                 </section>
                 <section>
-                    <FullPost id ={this.state.selectedPostId} />
+                    <FullPost id={this.state.selectedPostId} />
                 </section>
                 <section>
                     <NewPost />
