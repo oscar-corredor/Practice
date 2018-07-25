@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Person.css';
 import Radium from 'radium';
-import PropTyes from 'prop-types';
+import PropTypes from 'prop-types';
 import { AuthContext } from '../../../containers/App';
 
 
